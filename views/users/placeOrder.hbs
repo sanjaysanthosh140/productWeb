@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Place Order</h2>
+        <form id="checkout-form">
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" id="address" rows="3" name="Address" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="pincode" class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="pincode" name="pincode" required>
+                 <input type="text" name="userId"  value="{{this.user}}" hidden>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Payment Method</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" required>
+                    <label class="form-check-label" for="cod">
+                        Cash on Delivery (COD)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="online" value="online" required>
+                    <label class="form-check-label" for="online">
+                        Online Payment
+                    </label>
+                </div>
+            </div>
+            <a href="/success"><input  type="submit" class="btn btn-primary" value="Place Order"></a>
+            
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+<script>
+  $("#checkout-form").submit((e)=>{
+    e.preventDefault()
+    $.ajax({
+      url:'placeOrder',
+      method:'post',
+      data:$('#checkout-form').serialize(),
+      success:(response)=>{
+        console.log('resp',response)
+        if(response.status){
+            location.href='/successfully'
+        }else{
+            razorpayPayment(response)
+            console.log(response)
+        }
+      }
+ })
+  })
+
+
+  function razorpayPayment(order){
+   var options = {
+  "key": "rzp_test_j7B2kLPTq9IObD", // Enter the Key ID generated from the Dasshboard
+  "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+  "currency": "INR",
+  "name": "sanju E-Commers", //your business name
+  "description": "Test Transaction",
+  "image": "https://example.com/your_logo",
+  "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+  "handler": function(response){
+      verifyPayment(response,order)
+  },
+  "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+  "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+      "name": "Gaurav Kumar", //your customer's name
+      "email": "gaurav.kumar@example.com",
+      "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
+  },
+  "notes": {
+      "address": "Razorpay Corporate Office"
+  },
+  "theme": {
+      "color": "#3399cc"
+  },
+                 
+ //"key": "rzp_test_j7B2kLPTq9IObD", // Enter the Key ID generated from the Dashboard
+ //"amount": ""+order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+ //"currency": "INR",
+ //"name": "Acme Corp", //your business name
+ //"description": "Test Transaction",
+ //"image": "https://example.com/your_logo",
+ //"order_id": ""+order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+ //"handler": function (response){
+ //   console.log(response)
+ //    verifyPayment(response,order)
+ //},
+ //"prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+ //    "name": "Gaurav Kumar", //your customer's name
+ //    "email": "gaurav.kumar@example.com", 
+ //    "contact": "9000090000"  //Provide the customer's phone number for better conversion rates 
+ //},
+ //"notes": {
+ //    "address": "Razorpay Corporate Office"
+ //},
+ //"theme": {
+ //    "color": "#3399cc"
+ }
+
+ //
+ //
+
+ //
+
+  var rzp1 = new Razorpay(options);
+    rzp1.open();
+
+  }
+
+   
+  function verifyPayment(payment,order){
+   
+    $.ajax({
+        url:'/verifypayment',
+        data:{
+            payment,
+            order
+        },
+        method:'post',
+        success:(response)=>{
+                     
+            if(response.msg){
+             swal("Good job!", "order placed!", "success");         
+            }
+        }
+    })
+  }
+
+
+</script>
+
+</body>
+</html>

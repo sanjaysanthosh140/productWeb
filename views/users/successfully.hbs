@@ -1,0 +1,68 @@
+ <link rel="stylesheet" href="css/successfully.css">
+<div class="mobile">
+  <div class="cart-screen">
+
+   
+    <section>
+      <div class="cart-items-page">
+        <h4>ORDER CONFIRMED</h4>
+        <p>
+          Your Order has been confirmed. Thanks for shopping with us.
+         
+        </p>
+        {{#each items}}
+        <div class="cart-item">
+           <div class="img" ><img src="/podImg/{{this.products._id}}.jpg" alt="" style="width: 59px; height: 55px;"></div>
+           {{!-- <div class="class" style="width: 30px; height: 60;" ><span class="spn">{{this.products.podName}}</span></div> --}}
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="order-confirmation-page">
+        <h4>My Cart</h4>
+        <p>
+          Order placed Successfully and your order will be delivered soon.
+        </p>
+            {{#each items}}
+          <div class="cart-item">
+              <div class="img" ><img src="/podImg/{{this.products._id}}.jpg" alt="" style="width: 59px; height: 55px;"></div>
+              <div class="class" style="width: 30px; height: 60;" ><span class="spn">{{this.products.podName}}</span></div>
+         </div>
+           {{/each}}
+      </div>
+
+     
+    </section>
+    
+
+    <div class="cart-place-order">
+     
+      <div class="place-order">
+        <div class="truck">
+          <div class="body-top">
+            <div class="load">
+              <div class="action">Conform</div>
+            </div>
+            <div class="engine"></div>
+          </div>
+          <div class="body-base">
+            <div class="wheel"></div>
+            <div class="wheel"></div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+
+    <a class="back-action">Repeat Order</a>
+  </div>
+  <div class="notification"></div>
+</div>
+
+<script src="js/successfully.js"></script> 
+
+
+
+
+
+ 

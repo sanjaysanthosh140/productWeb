@@ -1,0 +1,109 @@
+<section>
+  <script src="https://kit.fontawesome.com/a0bfb68051.js"></script>
+<form   action="/admin/index"  method="post" class="search-box">
+  <input type="text" name="index"  placeholder="search">
+  <button type="submit"><i class="fas fa-search"></i></button>
+</form>
+
+<style>
+  body{
+  margin: 0;
+  padding: 0;
+  
+}
+.search-box{
+  position: absolute;
+  top: 5%;
+  left: 80%;
+  transform: translate(-50%,-50%);
+  background: #2d3436;
+  border-radius: 50px;
+  padding: 5px;
+}
+input{
+  background: none;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  color: white;
+  width: 0;
+  padding: 0;
+
+}
+button{
+  background:none;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+}
+i{
+  color: #ff7675;
+  font-size: 18px;
+  cursor: pointer;
+}
+.search-box:hover>input{
+  width: auto;
+    padding: 10px 20px;
+    transition: 0.25s;
+
+}
+
+</style>
+
+  <div class="container">
+    <div class="row mt-4">
+    </div>
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">NO</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+             {{#if datas}}
+             <td style="{color:"cyan"}">{{datas}}</td>
+              <td>
+                <a href="/userEdit/{{this._id}}"class="btn btn-primary">Edit</a>
+                <a href="/userDelet/{{this._id}}" class="btn btn-danger">Delete</a>
+                
+              </td>
+             {{/if}}
+            
+        {{#each emails}}
+          <tr>
+            <th scope="row">1</th>
+            <td style="{color:"cyan"}">{{this.name}}</td>
+            <td>
+              <a href="/admin/userEdit/{{this._id}}"class="btn btn-primary">Edit</a>
+              {{!-- <a href="/admin/userDelet/{{this._id}}" class="btn btn-danger">Delete</a> --}}
+              {{!-- <button onclick="editusr('{{this._id}}')" class="btn btn-primary">Edit</button> --}}
+              <button onclick="deletUsr('{{this._id}}')" class="btn btn-danger">Delete</button>
+
+
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function deletUsr(id){
+     $.ajax({
+      url:'/admin/userDelet/'+id,
+      method:'get',
+      success:(response)=>{
+        if(response.status){
+          swal({
+           title: "user is deleted!",
+           text: "click to conform!",
+           icon: "success",
+           button: "Aww yiss!",
+          });
+        }
+      }
+     })
+    }
+  </script>
+</section>

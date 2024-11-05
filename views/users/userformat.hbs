@@ -1,0 +1,147 @@
+{{!-- <html lang="en"> --}}
+  {{!-- <head> --}}
+    {{!-- <meta charset="UTF-8" /> --}}
+    {{!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> --}}
+    {{!-- <title>EIAV App</title> --}}
+  
+     <link rel="stylesheet" href="css/userformat.css" /> 
+  {{!-- </head> --}}
+  {{!-- <body> --}}
+    {{!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+{{!--  --}}
+    {{!-- <!-- Login Page --> --}}
+    {{!-- <div id="login-page"> --}}
+      {{!-- <h2>Login</h2> --}}
+      {{!-- <form id="login-form" action="/login" method="post"> --}}
+        {{!-- <label for="username">Email:</label> --}}
+        {{!-- <input type="email" id="username" name="email" required /><br /><br /> --}}
+        {{!-- <label for="password">Password:</label> --}}
+        {{!-- <input type="password" id="password" name="password" required /><br --}}
+        {{!-- /><br /> --}}
+        {{!-- <button type="submit">Login</button> --}}
+      {{!-- </form> --}}
+      {{!-- <p>Don't have an account? --}}
+        {{!-- <a href="#" onclick="toggleSignUp()">Sign up</a></p> --}}
+    {{!-- </div> --}}
+{{!--  --}}
+    {{!-- <!-- Sign Up Page --> --}}
+    {{!-- <div id="signup-page" style="display: none;"> --}}
+      {{!-- <h2>Sign Up</h2> --}}
+      {{!-- <form id="signup-form" action="/signing" method="post"> --}}
+        {{!-- <label for="sub" type="text"></label> --}}
+        {{!-- <input --}}
+          {{!-- type="email" --}}
+          {{!-- id="password" --}}
+          {{!-- name="email" --}}
+          {{!-- required --}}
+          {{!-- placeholder="email" --}}
+        {{!-- /><br /><br /> --}}
+        {{!-- <label for="username"></label> --}}
+        {{!-- <input --}}
+          {{!-- type="password" --}}
+          {{!-- id="username" --}}
+          {{!-- name="password" --}}
+          {{!-- required --}}
+          {{!-- placeholder="password" --}}
+        {{!-- /><br /><br /> --}}
+        {{!-- <label for="email" type="email"></label> --}}
+        {{!-- <input --}}
+          {{!-- type="text" --}}
+          {{!-- id="password" --}}
+          {{!-- name="sub" --}}
+          {{!-- required --}}
+          {{!-- placeholder="subject" --}}
+        {{!-- /><br /><br /> --}}
+        {{!-- <label for="txt" type="text"></label> --}}
+        {{!-- <input --}}
+          {{!-- type="text" --}}
+          {{!-- id="password" --}}
+          {{!-- name="Age" --}}
+          {{!-- required --}}
+          {{!-- placeholder="Age" --}}
+        {{!-- /><br /><br /> --}}
+        {{!-- <label for="txt" type="text"></label> --}}
+        {{!-- <input --}}
+          {{!-- type="text" --}}
+          {{!-- id="password" --}}
+          {{!-- name="Genter" --}}
+          {{!-- required --}}
+          {{!-- placeholder="Genter" --}}
+        {{!-- /><br /><br /> --}}
+        {{!-- <button type="submit">Sign Up</button> --}}
+      {{!-- </form> --}}
+      {{!-- <a href="/google/auth"><input type="button" value="button"></a> --}}
+{{!--  --}}
+      {{!-- <p>Already have an account? --}}
+        {{!-- <a href="#" onclick="toggleLogin()">Login</a></p> --}}
+    {{!-- </div> --}}
+{{!--  --}}
+    {{!-- <!-- JavaScript --> --}}
+    {{!-- <script src="js/script.js"></script> --}}
+  {{!-- </body> --}}
+{{!-- </html> --}}
+{{!--  --}}
+{{!--  --}}
+
+
+
+
+
+<!--dust particel-->
+
+<ul class="circles"> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> 
+</ul>
+<!--Dust particle end--->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <section class="wrapper my-5 mx-auto">
+      <div class="form signup">
+        <header>Signup</header>
+        <form action="/signing" method="post">
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="password" required />
+          <input type="text" name="sub" placeholder="Sub" required />
+          <input type="text" name="Age" placeholder="Age" required />
+          <input type="text" name="Genter" placeholder="Genter" required />
+          <div class="checkbox">
+            <input type="checkbox" id="signupCheck" />
+            <label for="signupCheck">I accept all terms & conditions</label>
+          </div>
+          <input type="submit" value="Signup" />
+            <a href="/google/auth"><input type="button" value="Google"></a>
+        </form>
+      </div>
+      <div class="form login">
+        <header>Login</header>
+        <form action="/login" method="post">
+          <input type="email" name="email" placeholder="Email address" required />
+          <input type="password" name="password" placeholder="Password" required />
+          
+            {{#if data}}
+               <div class="error-message">
+                 {{data}}
+               </div>
+            {{/if}}
+            
+          <a href="#">Forgot password?</a>
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+   </section>
+    </div>
+  </div>
+  <div>
+ <script src="js/userformat.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+

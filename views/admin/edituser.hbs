@@ -1,0 +1,22 @@
+<section>
+  <form action="/admin/edituser/{{data._id}}" method="post">
+    <input type="text" name="email" value="{{data.email}}" /><br>
+    <input type="text" name="sub" value="{{data.sub}}" /><br>
+    <input type="text" name="Age" value="{{data.Age}}" /><br>
+    <input type="text" name="Genter" value="{{data.Genter}}" /><br>
+    <input type="submit" value="submit"/>
+  </form>
+</section>
+
+<style>
+body{
+  background: #0000;
+}
+  form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+  }
+</style>
+

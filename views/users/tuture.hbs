@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="css/tuture.css">
+<h1>Card Hover Effect</h1>
+<div class="users">
+  {{#each data}}
+  <div class="user">
+    <div class="user-img-wrap">
+      <div class="user-img">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
+      </div>
+    </div>
+    <div class="user-meta">
+      <div class="user-name">
+        {{this._id}}
+      </div>
+      <div class="user-location">
+        <br>
+        <h2 style="color: cyan;">{{this.period}}</h2>
+      </div>
+      <div class="user-profiles">
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</div>

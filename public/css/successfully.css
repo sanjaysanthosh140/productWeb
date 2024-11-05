@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/** --- START : Variables & Mixins ----- */
+/** ------ END : Variables & Mixins ----- */
+/** ------- START : Common Styling  ------ */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(60deg, #6a93d2, #567fbd);
+  font-family: "IBM Plex Sans";
+}
+
+.mobile {
+  position: relative;
+  width: 300px;
+  height: 630px;
+  border-radius: 35px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.mobile .notification {
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  width: 100%;
+  height: 40px;
+  background-color: #444333;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.cart-screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  padding: 30px 0;
+}
+.cart-screen section {
+  position: relative;
+  left: 0;
+  transition: left 0.5s;
+}
+.cart-screen section.order-confirmed {
+  left: -100%;
+}
+.cart-screen section h4 {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 3px;
+}
+.cart-screen section p {
+  margin-top: 15px;
+  font-size: 13px;
+}
+.cart-screen section .cart-items-page {
+  padding: 0 25px;
+  
+}
+.cart-screen section .order-confirmation-page {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  bottom: auto;
+  right: auto;
+  width: 100%;
+  padding: 0 25px;
+}
+.cart-screen section .cart-item {
+  display: flex;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+.cart-screen section .cart-item:nth-of-type(1) {
+  margin-top: 20px;
+}
+.cart-screen section .cart-item .img {
+  width: 100px;
+  height: 30px;
+  padding-left: 30%;
+  /* background: #eeeeee; */
+}
+.cart-screen section .cart-item .desc {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 20px;
+  padding: 10px;
+}
+ span{
+  padding-left: 250%;
+  padding-top: 259%;
+  font-size: 20px;
+  
+}
+.cart-screen section .cart-item .desc:after, .cart-screen section .cart-item .desc:before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 10px);
+  height: 10px;
+  background: #eeeeee;
+}
+.cart-screen section .cart-item .desc:before {
+  top: 5px;
+}
+.cart-screen section .cart-item .desc:after {
+  top: 25px;
+  width: 70%;
+}
+.cart-screen .cart-place-order {
+  display: flex;
+  justify-content: center;
+  margin: 5px 20px;
+}
+.cart-screen a.back-action {
+  display: none;
+  padding: 20px 0;
+  color: #6a93d2;
+  font-size: 13px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/** ---------------- END : Common Styling   ------------- */
+/** --------- START : Place Order Interaction ---------- */
+.place-order {
+  position: relative;
+  width: 100%;
+  padding: 5px 5px 17px;
+  overflow: hidden;
+}
+.place-order:before, .place-order:after {
+  content: "";
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: -5px;
+  right: auto;
+  z-index: 4;
+  width: 100%;
+  height: 4px;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, rgba(230, 230, 230, 0), #e6e6e6, rgba(230, 230, 230, 0), #e6e6e6);
+}
+.place-order:after {
+  left: 100%;
+}
+.place-order .truck {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.place-order .truck .body-top {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+.place-order .truck .body-top .engine {
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: 43px;
+  width: 40px;
+  height: 40px;
+  background: #6a93d2;
+  transition: 0.5s;
+}
+.place-order .truck .body-top .engine:after {
+  content: "";
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: auto;
+  width: 25px;
+  height: 0;
+  border-bottom: 15px solid #6a93d2;
+  border-right: 15px solid #ffffff;
+}
+.place-order .truck .body-top .engine:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: auto;
+  bottom: auto;
+  right: 0;
+  width: 10px;
+  height: 20px;
+  background: #000;
+}
+.place-order .truck .body-top .load {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 50px;
+  background: #fc883a;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.place-order .truck .body-top .load .action {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  right: auto;
+  width: 100%;
+  height: 100%;
+  padding: 15px 25px;
+}
+.place-order .truck .body-top .load:before, .place-order .truck .body-top .load:after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 15%;
+  bottom: auto;
+  right: auto;
+  width: 30px;
+  height: 60%;
+  border-left: 15px double #d66e2a;
+  border-right: 15px double #d66e2a;
+}
+.place-order .truck .body-top .load:after {
+  left: auto;
+  right: 15%;
+}
+.place-order .truck .body-top .load .action, .place-order .truck .body-top .load:before, .place-order .truck .body-top .load:after {
+  transition: top 0.5s;
+}
+.place-order .truck .body-base {
+  position: relative;
+  top: -40px;
+  width: 100%;
+  height: 20px;
+  background: #444333;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 3px;
+  transition: 0.5s;
+}
+.place-order .truck .body-base:before, .place-order .truck .body-base:after {
+  content: "";
+  position: absolute;
+  top: auto;
+  left: 45px;
+  bottom: -15px;
+  right: auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+.place-order .truck .body-base:after {
+  left: auto;
+  right: 10px;
+}
+.place-order .truck .body-base .wheel {
+  position: absolute;
+  top: auto;
+  left: 47px;
+  bottom: -13px;
+  right: auto;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #4e5066;
+  border: 2px solid #3a3e4b;
+}
+.place-order .truck .body-base .wheel:before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px dashed #ffffff;
+}
+.place-order .truck .body-base .wheel:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  bottom: auto;
+  right: auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+.place-order .truck .body-base .wheel:nth-child(2) {
+  left: auto;
+  right: 12px;
+}
+.place-order.order-placed .truck .body-top .engine {
+  right: 0;
+  transition: right 0.75s;
+  transition-delay: 0.75s;
+}
+.place-order.order-placed .truck .body-top .load {
+  width: calc(100% - 43px);
+  transition: width 0.5s;
+  transition-delay: 0.5s;
+}
+.place-order.order-placed .truck .body-top .load .action {
+  top: 100%;
+}
+.place-order.order-placed .truck .body-top .load:before, .place-order.order-placed .truck .body-top .load:after {
+  top: 25%;
+}
+.place-order.order-placed .truck .body-base {
+  top: 0;
+  width: 100%;
+}
+.place-order.order-placed .truck .wheel {
+  animation: rotateWheels 1s infinite linear;
+  animation-delay: 1.2s;
+}
+.place-order.order-placed:before, .place-order.order-placed:after {
+  bottom: 0;
+  animation: moveRoad 1s linear infinite;
+  animation-delay: 1.25s;
+}
+
+@keyframes moveTruck {
+  0% {
+    transform: translateY(0px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes moveRoad {
+  100% {
+    left: -100%;
+  }
+}
+@keyframes rotateWheels {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/** ---------- END : Place Order Interaction --------- */

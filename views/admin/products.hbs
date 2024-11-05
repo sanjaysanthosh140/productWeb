@@ -1,0 +1,44 @@
+<section>
+    <link rel="stylesheet" href="css/products.css">
+<div class="container"></div>
+	<div class="row">
+			<div class="well">      
+            <div id="myCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    {{#each products}}
+                    <div class="item">
+                        <div class="row">                           
+                            
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                  <img style="width:100px; height:100px" src="/images/{{this._id}}.jpg" alt="Slide22">
+                                  <div class="caption">
+                                    <h3>{{this.price}}</h3>
+                                    <p>{{this.product}}</p>
+                                    <a href="/admin/delet/{{this._id}}"><input type="button" class="btn btn-primary" value="Delete"></a>
+                                    <a href="/admin/Edit/{{this._id}}"><input type="button" class="btn btn-success" value="Edit"></a>
+                                    
+                                  </div>
+                                </div> 
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {{/each}}
+
+                    
+              
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a>
+                
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>                
+            </div><!-- End Carousel --> 
+        </div><!-- End Well -->
+    </div>
+</div>
+<script src="js/products.js"></script>
+</section>

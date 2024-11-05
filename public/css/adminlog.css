@@ -1,0 +1,125 @@
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+*{
+box-sizing:border-box;
+}
+body{
+margin:0;
+font-size:14px;
+line-height:1.2;
+color:#333;
+font-family: 'Open Sans', sans-serif;
+}
+.login-icon {
+font-size: 65px;
+text-align: right;
+color: #fff;
+}
+.login-form {
+width: 350px;
+height: 350px;
+border-radius: 100%;
+padding: 55px;
+-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+background: #fff;
+padding-top: 40px;
+overflow: hidden;
+position: relative;
+}
+.login-form label {
+display: block;
+color: #333;
+line-height: 1.2;
+padding-bottom: 5px;
+padding-top: 5px;
+font-size: 12px;
+}
+.login-icon * {
+position: relative;
+}
+.login-icon .text {
+font-size: 25px;
+margin-right: 10px;
+}
+.custom-main-admin-login {
+height: 100vh;
+padding: 15px;  
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.login-form button.login {
+-webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+border: 0;
+background: linear-gradient(to left, #10C2AA, #20a59a);
+color: #fff;
+display: block;
+padding: 6px 15px 7px;
+margin-top: 20px;
+cursor: pointer;
+float: right;
+font-size: 15px;
+outline: 0;
+}
+.login-form button.login:active {
+position: relative;
+top: 0.5px;
+}
+.login-form input {
+border: 0;
+border-bottom: 2px solid #13bda7;
+width: 100%;
+background: #fcfcfc;
+padding: 5px 2px;
+outline: 0;
+}
+.loading .loading-ring {
+position: absolute;
+width: 355px;
+height: 355px;
+background: #9E9E9E;
+-webkit-animation: rotation 3s infinite linear;
+z-index: -1;
+border-radius: 100%;
+}
+.custom-round-form {
+overflow: hidden;
+width: 375px;
+height: 395px;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.loading-ring:before {
+content: "";
+background: white;
+width: 362px;
+height: 362px;
+position: absolute;
+border-radius: 100%;
+top: 17px;
+left: 5px;
+}
+.login-icon:before {
+content: "";
+background: linear-gradient(to left, #10C2AA, #20a59a);
+position: absolute;
+width: 500px;
+height: 200px;
+top: -85px;
+left: -100px;
+box-shadow: 4px 1px 2px #00000059;
+}
+.login-form-section {
+margin-top: 10px;
+}

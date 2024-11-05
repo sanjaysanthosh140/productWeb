@@ -1,0 +1,7 @@
+/* Note: for icon positioning to work correctly, font-awesome.css MUST be included BEFORE bootstrap.css */
+
+.payment-form-icon {
+    line-height: 46px;
+    margin-right: 10px;
+    color: #dddddd !important;
+  }

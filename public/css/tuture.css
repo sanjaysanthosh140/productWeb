@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  body {
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #0f0f0f;
+    background-color: #ecedef;
+    padding: 50px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    gap: 30px;
+  }
+  
+  .user {
+    position: relative;
+    z-index: 1;
+    width: 250px;
+    /* height: 350px; */
+    /* 350/250 = 1.4 */
+    aspect-ratio: 1 / 1.4;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 30px 30px 5px #d6d9e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .user-img-wrap {
+    position: relative;
+    width: 117px;
+    aspect-ratio: 1;
+    padding: 7px;
+    border-radius: 100%;
+  }
+  
+  .user-img-wrap::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    inset: 0;
+    border-radius: 100%;
+  
+    background: linear-gradient(
+      #4cd964,
+      #5ac8fa,
+      #007aff,
+      #7dc8e8,
+      #5856d6,
+      #ff2d55
+    );
+  
+    opacity: 0;
+    transition: opacity 1s;
+  
+    animation: rotate 4s linear infinite;
+    animation-play-state: paused;
+    filter: saturate(2) blur(10px);
+  }
+  
+  .user:hover .user-img-wrap::after {
+    opacity: 1;
+    animation-play-state: running;
+  }
+  
+  @keyframes rotate {
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  .user-img {
+    aspect-ratio: 1;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+  
+  .user-meta {
+    text-align: center;
+  }
+  
+  .user-name {
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  .user-location {
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: #a0a2b6;
+    margin-bottom: 1rem;
+  }
+  
+  .user-profiles {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  

@@ -1,0 +1,77 @@
+<section> 
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="mb-4">Product List</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {{#each data}}
+                    <tr>
+                      
+                        <td><img style="width:70px;height:70px" src="/podImg/{{this.products._id}}.jpg" alt=""></td>
+                        <td>{{this.products.podName}}</td>
+                        <td>{{this.products.price}}</td>
+                       
+                        <td>
+                          <button class="cart-itme-count mr-3"  onclick="chandeQuantity('{{this._id}}','{{this.products._id}}',-1)">-</button><span class="#">{{this.quantity}}</span><button class="cart-itme-count ml-3" onclick="chandeQuantity('{{this._id}}','{{this.products._id}}',1)">+</button> 
+                        </td>
+                        <td>
+                         {{!-- <a href="/remove/{{this._id}}" class="btn btn-danger">Remove</a> --}}
+                         <button  class="btn btn-danger"  onclick="removes('{{this.products._id}}','{{this._id}}')">remove</button>
+                          </td>
+                    </tr>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+  
+</div>
+<hr>
+<h3 class=" mr-0 mt-4">Total:Rs. <span id="qunty">{{price}}</span></h3>
+<a href="/place-order" class="float-right btn btn-success">place order</a>
+</div>
+
+  <script>
+       function chandeQuantity(cart,product,count){
+        $.ajax({
+            url:'/product_quantity',
+            data:{
+                cartId:cart,
+                productId:product,
+                count:count
+            },
+            method:'post',
+            success:(response)=>{
+                console.log(response)
+               document.getElementById('qunty').innerHTML = response.totals
+            }
+        })
+       }
+
+       function removes(productId,cartId){
+        $.ajax({
+            url:'/removeitem',
+            data:{
+                productId:productId,
+                cartId:cartId
+            },
+            method:'post',
+            success:(response)=>{
+                console.log(response)
+                if(response.remove){
+                    location.reload()
+                }
+            }
+        })
+       }
+  </script>
+
+</section>

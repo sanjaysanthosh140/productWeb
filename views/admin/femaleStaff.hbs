@@ -1,0 +1,28 @@
+<section>
+  <div class="container">
+    <div class="row mt-4">
+    </div>
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">NO</th>
+          <th scope="col">Email</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each data}}
+          <tr>
+            <th scope="row">1</th>
+            <td >{{this.email}}</td>
+            <td >{{this.Age}}</td>
+            <td>
+              <a href="/admin/unblock/{{this._id}}"class="btn btn-primary">unBlock</a>
+              <a href="/admin/block/{{this._id}}" class="btn btn-danger">Block</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>

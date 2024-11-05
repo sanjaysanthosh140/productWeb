@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="css/servicesAdd.css" />
+<form
+  id="payment-stripe"
+  class="container"
+  action="/admin/addservice"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="cc-number" class="control-label">discription<small
+            class="text-muted"
+          >[<span data-payment="cc-brand"></span>]</small></label>
+        <div class="input-group">
+          <span class="input-group-addon"><i
+              class="fa fa-credit-card"
+            ></i></span>
+          <input
+            id="cc-number"
+            type="text"
+            name="discription"
+            class="input-lg form-control cc-number"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="form-group">
+        <label>Name</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+          <input
+            id="cc-exp"
+            type="text"
+            name="name"
+            class="input-lg form-control cc-exp"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label>Image</label>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+          <input
+            id="cc-cvc"
+            type="file"
+            name="image"
+            class="input-lg form-control cc-cvc"
+            required
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Add</button>
+</form>
