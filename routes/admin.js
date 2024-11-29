@@ -10,22 +10,22 @@ router.get('/', function (req, res, next) {
 
 
 router.post('/adlogin', (req, res) => {
-
-    let admindata = req.body
-    adminHelper.logadmin(admindata, (result) => {
-        try {
-            if (result) {
-                //res.render('admin/adminhome', { name: result })
-                res.render('admin/adhometwo2.hbs', { name: result })
-                console.Console(result)
-            } else {
-                res.render('admin/adminErr')
-                console.log(result)
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    })
+ res.render('admin/adhometwo2.hbs')
+    // let admindata = req.body
+    // adminHelper.logadmin(admindata, (result) => {
+    //     try {
+    //         if (result) {
+    //             //res.render('admin/adminhome', { name: result })
+               
+    //             console.Console(result)
+    //         } else {
+    //             res.render('admin/adminErr')
+    //             console.log(result)
+    //         }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // })
 
 })
 
