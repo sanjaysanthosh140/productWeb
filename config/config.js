@@ -5,9 +5,14 @@ const state = {
 }
 
 async function connect() {
-    const url = "mongodb://localhost:27017/"
+    const url = "mongodb+srv://sanju:%230ef%23000%2C%23ffff@mernapp.blnm8.mongodb.net/?retryWrites=true&w=majority&appName=mernapp"
     const dbName = 'Workers'
-    const client = new db(url)
+    const client = new db(url,{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 5000,
+        connectTimeoutMS: 10000
+    })
 
     try {
         client.connect()
